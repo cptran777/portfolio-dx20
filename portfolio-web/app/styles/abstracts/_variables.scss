@@ -1,0 +1,16 @@
+// Dark black/blue
+$primary-color: #151a28;
+// Light blue
+$secondary-color: #81d2ff;
+
+@mixin smooth-transitions($time, $type:all) {
+  -webkit-transition: $type $time ease;
+     -moz-transition: $type $time ease;
+       -o-transition: $type $time ease;
+          transition: $type $time ease;
+}
+
+@mixin slight-padding($amount) {
+  padding-left: $amount;
+  padding-top: $amount;
+}

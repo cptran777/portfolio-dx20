@@ -1,0 +1,24 @@
+@function get-color($color, $opacity: 1) {
+  $color-theme: (
+    primary: $primary-color,
+    primary1: #020305,
+    primary2: #07090f,
+    primary3: $primary-color,
+    primary4: #6e7996,
+    primary5: #c2cdea,
+    secondary: $secondary-color,
+    secondary1: #2f9ad3,
+    secondary2: #46b4f0,
+    secondary3: $secondary-color,
+    secondary4: #a8f2ff,
+    secondary5: #cfecfc
+  );
+
+  $color: map-get($color-theme, $colorKey);
+
+  @if ($opacity < 1) {
+    $color: rgba($color, $opacity);
+  }
+
+  @return $color;
+}
