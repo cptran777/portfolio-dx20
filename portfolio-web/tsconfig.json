@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": [
+      "es2017.object",
+      "es2016",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noEmitOnError": true,
+    "baseUrl": ".",
+    "sourceMap": true,
+    "noEmit": true,
+    "strict": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "pretty": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "downlevelIteration": true,
+    "paths": {
+      "portfolio-web/*": [
+        "app/*"
+      ],
+      "portfolio-web/tests/*": [
+        "tests/*"
+      ],
+      "portfolio-web/mirage/*": [
+        "mirage/*"
+      ]
+    }
+  },
+  "include": [
+    "app/**/*",
+    "tests/**/*",
+    "mirage/**/*"
+  ],
+  "exclude": [
+    "tmp",
+    "dist",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    ".git",
+    ".gradle",
+    ".idea",
+    "logs"
+  ]
+}
