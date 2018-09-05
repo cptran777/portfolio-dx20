@@ -15,7 +15,6 @@
     "baseUrl": ".",
     "sourceMap": true,
     "noEmit": true,
-    "strict": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,

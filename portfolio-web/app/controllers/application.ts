@@ -1,11 +1,6 @@
 import Controller from '@ember/controller';
 import { computed, get } from '@ember/object';
-
-interface INavItem {
-  link: string;
-  title: string;
-  isActive?: boolean;
-}
+import { INavItem } from 'portfolio-web/typings/app/navigation';
 
 export default class ApplicationController extends Controller {
   navItems = computed('currentPath', function (): Array<INavItem> {
