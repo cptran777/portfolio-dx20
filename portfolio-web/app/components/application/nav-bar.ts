@@ -2,8 +2,9 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import ComputedProperty from '@ember/object/computed';
 import { INavItem } from 'portfolio-web/typings/app/navigation';
-import RuntimeConfigs from 'portfolio-web/services/runtime-configs';
-import { get } from '@ember/object';
+import RuntimeConfigs, { ScreenResolution } from 'portfolio-web/services/runtime-configs';
+import { equal, alias } from '@ember-decorators/object/computed';
+import { IKeyMap } from 'portfolio-web/typings/global/general';
 
 /**
  * Application navigation bar. It includes a profile picture and internal/external navigation links.
@@ -26,6 +27,8 @@ export default class ApplicationNavBar extends Component.extend({
    */
   classNames = ['nav-bar'];
 
+  classNameBindings = ['isExpanded:nav-bar--expanded:nav-bar--collapsed', 'isDesktop:nav-bar--desktop'];
+
   /**
    * Passed in property for the navigation items. Used in the template to render the different items
    * @type {Array<INavItem>}
@@ -38,12 +41,25 @@ export default class ApplicationNavBar extends Component.extend({
    */
   isExpanded = false;
 
+  /**
+   * Computed alias for whether the screen size for the user is a desktop size
+   * @type {boolean}
+   */
+  @equal('runtimeConfigs.screenResolution', ScreenResolution.desktop)
+  isDesktop: ComputedProperty<boolean>;
+
+  /**
+   * Computed alias for the asset paths we have available in our constants
+   * @type {IKeyMap}
+   */
+  @alias('runtimeConfigs.assetPaths')
+  assets: ComputedProperty<IKeyMap>;
+
   constructor() {
     super(...arguments);
     this.navItems || (this.navItems = []);
 
-    const configs = get(this, 'runtimeConfigs');
-
-    console.log(configs);
+    // Temporary for dev purposes
+    this.isExpanded = true;
   }
 };

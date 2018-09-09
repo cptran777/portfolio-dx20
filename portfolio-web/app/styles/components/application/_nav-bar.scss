@@ -1,0 +1,29 @@
+.nav-bar {
+  @include smooth-transitions(0.5s);
+  background-color: get-color(primary);
+
+  &--desktop {
+    height: 100vh;
+
+    &.nav-bar {
+      overflow-y: auto;
+
+      &--expanded {
+        min-width: 256px;
+        width: 20vw;
+      }
+    }
+  }
+
+  .profile-background {
+    padding-top: 58px;
+
+    &__img {
+      border-radius: 50%;
+      height: 128px;
+      width: 128px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,2 +1,15 @@
-Nav bars
-{{yield}}
+{{#if isDesktop}}
+  
+  {{#if isExpanded}}
+
+    <section class="profile-background">
+      <img class="profile-background__img" src={{assets.profileImage}} alt="Profile Image"/>
+    </section>
+
+  {{else}}
+
+  {{/if}}
+
+{{else}}
+  This is not a desktop
+{{/if}}

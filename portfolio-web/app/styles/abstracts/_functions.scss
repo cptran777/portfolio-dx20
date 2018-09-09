@@ -14,7 +14,7 @@
     secondary5: #cfecfc
   );
 
-  $color: map-get($color-theme, $colorKey);
+  $color: map-get($color-theme, $color);
 
   @if ($opacity < 1) {
     $color: rgba($color, $opacity);

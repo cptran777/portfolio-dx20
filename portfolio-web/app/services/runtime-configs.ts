@@ -1,14 +1,23 @@
 import Service from '@ember/service';
 import { debounce } from '@ember/runloop';
 import { set } from '@ember/object';
+import { IKeyMap } from 'portfolio-web/typings/global/general';
+import * as assetPaths from 'portfolio-web/data/constants/asset-paths';
 
-enum ScreenResolution {
+export enum ScreenResolution {
   mobile = 'mobile',
   tablet = 'tablet',
   desktop = 'desktop'
 }
 
 export default class RuntimeConfigs extends Service {
+  /**
+   * A quick way to reference the various static asset paths we have for images and other things
+   * set up in this application
+   * @type {IKeyMap}
+   */
+  assetPaths: IKeyMap = assetPaths;
+
   /**
    * Determination of current screen resolution. Depending on the size of the screen, we will want to
    * adjust application behavior accordingly
@@ -19,7 +28,7 @@ export default class RuntimeConfigs extends Service {
   determineScreenResolution(): void {
     set(this, 'screenResolution', 
       window.matchMedia('screen and (max-width: 768px)').matches ? ScreenResolution.mobile :
-      window.matchMedia('screen and (max-width: 1028px)').matches ? ScreenResolution.tablet :
+      window.matchMedia('screen and (max-width: 900px)').matches ? ScreenResolution.tablet :
       ScreenResolution.desktop
     );  
   }
@@ -28,7 +37,7 @@ export default class RuntimeConfigs extends Service {
     super(...arguments);
     this.determineScreenResolution();
     window.addEventListener('resize', () => {
-      debounce(this.determineScreenResolution, 150, true);
+      debounce(this.determineScreenResolution.bind(this), 150, true);
     });
   }
 }
