@@ -12,15 +12,6 @@ module('Integration | Component | application/footer-bar', function(hooks) {
 
     await render(hbs`{{application/footer-bar}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#application/footer-bar}}
-        template block text
-      {{/application/footer-bar}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal((this.element.textContent || '').trim(), '');
   });
 });
