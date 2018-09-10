@@ -1,13 +1,20 @@
 {{#if isDesktop}}
-  <i class="fa fa-angle-double-left fa-2x toggle-menu" aria-hidden="true" {{action "onToggleExpanded"}}></i>
+  <i class="fa {{if isExpanded "fa-angle-double-left" "fa-angle-double-right"}} fa-2x toggle-menu" 
+   aria-hidden="true" 
+   {{action "onToggleExpanded"}}>
+  </i>
+  <section class="brand-logo">
+    {{#link-to "index"}}
+      <img class="brand-logo__img" src={{assets.profileIcon}} />
+    {{/link-to}}
+  </section>
 
   {{#if isExpanded}}
-    <section class="brand-logo">
-      <img class="brand-logo__img" src={{assets.profileIcon}} />
-    </section>
 
     <section class="profile-background">
-      <img class="profile-background__img" src={{assets.profileImage}} alt="Profile Image"/>
+      {{#link-to "index"}}
+        <img class="profile-background__img" src={{assets.profileImage}} alt="Profile Image"/>
+      {{/link-to}}
     </section>
 
     <section class="profile-title">
@@ -16,10 +23,10 @@
     </section>
 
     <section class="profile-icons">
-      <a href="https://www.linkedin.com/in/charlie-tran" class="profile-icon">
+      <a href="https://www.linkedin.com/in/charlie-tran" class="profile-icon" target="_blank">
         <i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i>
       </a>
-      <a href="https://github.com/cptran777" class="profile-icon">
+      <a href="https://github.com/cptran777" class="profile-icon" target="_blank">
         <i class="fa fa-github-square fa-4x" aria-hidden="true"></i>
       </a>
     </section>
@@ -43,11 +50,24 @@
           {{/each}}
         </nav>
       </div>
-
-
     </section>
 
   {{else}}
+
+    <section class="nav-icons">
+      <a href="https://www.linkedin.com/in/charlie-tran" class="nav-icons__icon-link" target="_blank">
+        <i class="fa fa-linkedin-square fa-4x nav-icons__icon" aria-hidden="true"></i>
+      </a>
+      <a href="https://github.com/cptran777" class="nav-icons__icon-link" target="_blank">
+        <i class="fa fa-github-square fa-4x nav-icons__icon" aria-hidden="true"></i>
+      </a>
+      {{#link-to "portfolio" class="nav-icons__icon-link"}}
+        <i class="fa fa-laptop fa-4x nav-icons__icon" aria-hidden="true"></i>
+      {{/link-to}}
+      {{#link-to "interests" class="nav-icons__icon-link"}}
+        <i class="fa fa-gamepad fa-4x nav-icons__icon" aria-hidden="true"></i>
+      {{/link-to}}
+    </section>
 
   {{/if}}
 
