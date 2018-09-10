@@ -6,6 +6,8 @@ import RuntimeConfigs, { ScreenResolution } from 'portfolio-web/services/runtime
 import { equal, alias } from '@ember-decorators/object/computed';
 import { action } from '@ember-decorators/object';
 import { IKeyMap } from 'portfolio-web/typings/global/general';
+import NavbarState from 'portfolio-web/services/navbar-state';
+import { get } from '@ember/object';
 
 /**
  * Application navigation bar. It includes a profile picture and internal/external navigation links.
@@ -18,18 +20,12 @@ export default class ApplicationNavBar extends Component.extend({
   tagName: 'nav',
 
   /**
-   * Injected service for the runtime configs
-   * @type {ComputedProperty<Service>}
-   */
-  runtimeConfigs: <ComputedProperty<RuntimeConfigs>>service('runtime-configs')
-}) {
-  /**
    * Class for the rendered html element for this component
    */
-  classNames = ['nav-bar'];
+  classNames: ['nav-bar'],
 
-  classNameBindings = ['isExpanded:nav-bar--expanded:nav-bar--collapsed', 'isDesktop:nav-bar--desktop'];
-
+  classNameBindings: ['isExpanded:nav-bar--expanded:nav-bar--collapsed', 'isDesktop:nav-bar--desktop']
+}) {
   /**
    * Passed in property for the navigation items. Used in the template to render the different items
    * @type {Array<INavItem>}
@@ -40,7 +36,19 @@ export default class ApplicationNavBar extends Component.extend({
    * Boolean flag that determines whether the nav bar is currently expanded. 
    * @type {boolean}
    */
-  isExpanded = false;
+  isExpanded = true;
+
+  /**
+   * Injected service for the runtime configs
+   * @type {ComputedProperty<Service>}
+   */
+  runtimeConfigs: ComputedProperty<RuntimeConfigs> = service('runtime-configs');
+
+  /**
+   * Injected service for the navbar state
+   * @type {ComputedProperty<Service>}
+   */
+  navbarState: ComputedProperty<NavbarState> = service('navbar-state');
 
   /**
    * Computed alias for whether the screen size for the user is a desktop size
@@ -59,13 +67,15 @@ export default class ApplicationNavBar extends Component.extend({
   constructor() {
     super(...arguments);
     this.navItems || (this.navItems = []);
-
-    // Temporary for dev purposes
-    this.isExpanded = true;
   }
 
+  /**
+   * Triggered by user click on the double arrows at the top of the navbar, changes our sidebar 
+   * between the collapsed or expanded states
+   */
   @action
   onToggleExpanded() {
-    this.toggleProperty('isExpanded');
+    // Also want to trigger the service to make other components aware of this state
+    get(this, 'navbarState').set('isExpanded', this.toggleProperty('isExpanded'));
   }
 };

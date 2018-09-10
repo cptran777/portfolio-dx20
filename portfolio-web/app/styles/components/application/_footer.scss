@@ -1,0 +1,12 @@
+.app-footer {
+  background-color: get-color(secondary2);
+
+  &--desktop {
+    height: 100vh;
+    width: 20vw;
+    min-width: 256px;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+}

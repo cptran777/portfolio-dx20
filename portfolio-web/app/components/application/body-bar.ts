@@ -2,20 +2,19 @@ import Component from '@ember/component';
 import ComputedProperty from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import RuntimeConfigs, { ScreenResolution } from 'portfolio-web/services/runtime-configs';
-import { equal } from '@ember-decorators/object/computed';
+import { equal, alias } from '@ember-decorators/object/computed';
+import NavbarState from 'portfolio-web/services/navbar-state';
 
-export default class ApplicationFooterBar extends Component.extend({
-  /**
-   * Sets the tagname for the rendered html element by this component
-   */
-  tagName: 'footer',
-
+export default class ApplicationBodyBar extends Component.extend({
   /**
    * Class for the rendered html element for this component
    */
-  classNames: ['app-footer'],
+  classNames: ['app-body'],
 
-  classNameBindings: ['isDesktop:app-footer--desktop']
+  classNameBindings: [
+    'isDesktop:app-body--desktop', 
+    'navIsExpanded:app-body--desktop--nav-expanded:app-body--desktop--nav-collapsed'
+  ]
 }) {
   /**
    * Injected service for the runtime configs
@@ -24,9 +23,18 @@ export default class ApplicationFooterBar extends Component.extend({
   runtimeConfigs: ComputedProperty<RuntimeConfigs> = service('runtime-configs');
 
   /**
+   * Injected service for the navbar state
+   * @type {ComputedProperty<Service>}
+   */
+  navbarState: ComputedProperty<NavbarState> = service('navbar-state');
+
+  /**
    * Computed alias for whether the screen size for the user is a desktop size
    * @type {boolean}
    */
   @equal('runtimeConfigs.screenResolution', ScreenResolution.desktop)
-  isDesktop: ComputedProperty<boolean>;  
+  isDesktop: ComputedProperty<boolean>;
+
+  @alias('navbarState.isExpanded')
+  navIsExpanded: ComputedProperty<boolean>;
 };
