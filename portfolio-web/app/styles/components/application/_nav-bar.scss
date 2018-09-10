@@ -1,6 +1,7 @@
 .nav-bar {
   @include smooth-transitions(0.5s);
   background-color: get-color(primary);
+  position: relative;
 
   &--desktop {
     height: 100vh;
@@ -15,15 +16,38 @@
     }
   }
 
+  .brand-logo {
+    height: 20%;
+    
+    &__img {
+      width: 100%;
+    }
+  }
+
   .profile-background {
-    padding-top: 58px;
+    padding-top: 15%;
+    position: absolute;
+    width: 100%;
 
     &__img {
       border-radius: 50%;
-      height: 128px;
-      width: 128px;
+      height: 156px;
+      width: 156px;
       display: block;
       margin: 0 auto;
+    }
+  }
+
+  .profile-title {
+    width: 100%;
+    margin-top: 212px;
+    color: get-color(secondary);
+    text-align: center;
+
+    &__name {
+      text-decoration: underline;
+      letter-spacing: 2px;
+      font-size: 20px;
     }
   }
 }

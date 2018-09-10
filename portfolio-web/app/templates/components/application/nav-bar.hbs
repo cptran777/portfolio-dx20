@@ -1,9 +1,17 @@
 {{#if isDesktop}}
   
   {{#if isExpanded}}
+    <section class="brand-logo">
+      <img class="brand-logo__img" src={{assets.profileIcon}} />
+    </section>
 
     <section class="profile-background">
       <img class="profile-background__img" src={{assets.profileImage}} alt="Profile Image"/>
+    </section>
+
+    <section class="profile-title">
+      <h1 class="profile-title__name">C h a r l i e . T r a n</h1>
+      <h3 class="profile-title__title">Software Engineer</h3>
     </section>
 
   {{else}}
