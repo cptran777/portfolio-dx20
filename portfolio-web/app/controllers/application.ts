@@ -6,6 +6,7 @@ export default class ApplicationController extends Controller {
   navItems = computed('currentPath', function (): Array<INavItem> {
     const currentPath = get(this, 'currentPath');
     const navItems: Array<INavItem> = [
+      { link: 'index', title: 'Home' },
       { link: 'portfolio', title: 'Portfolio' },
       { link: 'interests', title: 'Interests' }
     ];

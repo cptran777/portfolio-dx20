@@ -14,6 +14,38 @@
       <h3 class="profile-title__title">Software Engineer</h3>
     </section>
 
+    <section class="profile-icons">
+      <a href="https://www.linkedin.com/in/charlie-tran" class="profile-icon">
+        <i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i>
+      </a>
+      <a href="https://github.com/cptran777" class="profile-icon">
+        <i class="fa fa-github-square fa-4x" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <section class="profile-links">
+      {{#each navItems as |navLink|}}
+        {{#link-to navLink.link class="profile-links__link"}}
+          <button 
+           class="profile-links__link__btn {{if navLink.isActive "profile-links__link__btn--active"}}">
+            {{navLink.title}} 
+          </button>
+        {{/link-to}}
+      {{/each}}
+
+      <div id="profile-nav" class="col-xs-12 col-sm-12 col-md-12">
+        <nav id="app-navigation" class="row">
+          {{#each linkedList as |link|}}
+          <div class="col-xs-12 col-sm-12 col-md-12 nav-link {{if link.selected " selected "}}" {{action "onNewRoute" link.val}}>
+            {{link.message}}
+          </div>
+          {{/each}}
+        </nav>
+      </div>
+
+
+    </section>
+
   {{else}}
 
   {{/if}}

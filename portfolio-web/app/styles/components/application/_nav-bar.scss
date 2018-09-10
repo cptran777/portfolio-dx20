@@ -35,6 +35,7 @@
       width: 156px;
       display: block;
       margin: 0 auto;
+      cursor: pointer;
     }
   }
 
@@ -48,6 +49,63 @@
       text-decoration: underline;
       letter-spacing: 2px;
       font-size: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .profile-icons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    a.profile-icon {
+      color: get-color(secondary);
+      margin: 0 8px;
+
+      &:hover {
+        color: get-color(secondary5);
+      }
+    }
+  }
+
+  .profile-links {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+
+    &__link {
+      width: 100%;
+      margin: 4px 0;
+      text-decoration: none;
+
+      &__btn {
+        display: block;
+        margin: 0 auto;
+        width: 75%;
+        border: none;
+        background-color: get-color(secondary);
+        color: get-color(white, 0.85);
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 2px 0;
+        height: 20px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: get-color(secondary4);
+        }
+
+        &--active {
+          color: get-color(primary);
+          background-color: get-color(secondary5);
+
+          &:hover {
+            color: get-color(primary);
+            background-color: get-color(secondary5);
+          }
+        }
+      }
     }
   }
 }

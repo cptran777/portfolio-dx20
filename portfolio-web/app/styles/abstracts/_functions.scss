@@ -11,7 +11,8 @@
     secondary2: #46b4f0,
     secondary3: $secondary-color,
     secondary4: #a8f2ff,
-    secondary5: #cfecfc
+    secondary5: #cfecfc,
+    white: #fff
   );
 
   $color: map-get($color-theme, $color);
