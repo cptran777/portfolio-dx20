@@ -14,6 +14,17 @@
         width: 20vw;
       }
     }
+
+    .toggle-menu {
+      color: get-color(white, 0.85);
+      position: absolute;
+      right: 8px;
+      cursor: pointer;
+
+      &:hover {
+        color: get-color(secondary4);
+      }
+    }
   }
 
   .brand-logo {

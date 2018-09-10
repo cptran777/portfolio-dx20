@@ -4,6 +4,7 @@ import ComputedProperty from '@ember/object/computed';
 import { INavItem } from 'portfolio-web/typings/app/navigation';
 import RuntimeConfigs, { ScreenResolution } from 'portfolio-web/services/runtime-configs';
 import { equal, alias } from '@ember-decorators/object/computed';
+import { action } from '@ember-decorators/object';
 import { IKeyMap } from 'portfolio-web/typings/global/general';
 
 /**
@@ -61,5 +62,10 @@ export default class ApplicationNavBar extends Component.extend({
 
     // Temporary for dev purposes
     this.isExpanded = true;
+  }
+
+  @action
+  onToggleExpanded() {
+    this.toggleProperty('isExpanded');
   }
 };
