@@ -7,6 +7,7 @@ import * as assetPaths from 'portfolio-web/data/constants/asset-paths';
 export enum ScreenResolution {
   mobile = 'mobile',
   tablet = 'tablet',
+  laptop = 'laptop',
   desktop = 'desktop'
 }
 
@@ -29,6 +30,7 @@ export default class RuntimeConfigs extends Service {
     set(this, 'screenResolution', 
       window.matchMedia('screen and (max-width: 768px)').matches ? ScreenResolution.mobile :
       window.matchMedia('screen and (max-width: 900px)').matches ? ScreenResolution.tablet :
+      window.matchMedia('screen and (max-width: 1140px)').matches ? ScreenResolution.laptop :
       ScreenResolution.desktop
     );  
   }

@@ -5,18 +5,17 @@
 
   &--desktop {
     height: 100vh;
-    float: left;
 
     &.nav-bar {
       overflow-y: auto;
 
       &--expanded {
-        min-width: 256px;
+        min-width: $min-nav-width--expanded;
         width: 20vw;
       }
 
       &--collapsed {
-        min-width: 88px;
+        min-width: $min-nav-width--collapsed;
         width: 5.5vw;
       }
     }

@@ -1,5 +1,10 @@
 body {
   margin: 0;
+
+  #app-container {
+    width: 100vw;
+    display: flex;
+  }
 }
 
 div, nav, header, section, footer {

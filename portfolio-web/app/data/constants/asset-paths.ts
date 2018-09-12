@@ -8,3 +8,6 @@ export const profileImage = 'assets/images/Personal-Logo.jpg';
 
 // Branding icon
 export const profileIcon = 'assets/images/Personal-Icon.png';
+
+// Image for the navbar
+export const navbarImage = 'assets/images/Navbar-Image.jpg';

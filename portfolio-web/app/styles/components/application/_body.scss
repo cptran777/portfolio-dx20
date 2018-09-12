@@ -1,20 +1,19 @@
 .app-body {
   @include smooth-transitions(0.5s, width);
-  background-color: get-color(secondary, 0.5);
+  background-color: get-color(secondary, 0.3);
   position: relative;
 
   &--desktop {
     height: 100vh;
-    float: left;
     
     &--nav-expanded {
       width: 60vw;
-      min-width: 388px;
+      min-width: $min-body-width;
     }
 
     &--nav-collapsed {
       width: 74.5vw;
-      min-width: 556px;
+      min-width: $min-body-width;
     }
   }
 }
