@@ -1,3 +1,11 @@
 <div class="profile-icon">
   <img class="navbar-image" src={{assets.navbarImage}} alt="navbar-image"/>
 </div>
+<ul class="index-header__tabs">
+  {{#each navOptions as |tab|}}
+    <li class="index-header__tabs__tab {{if tab.isActive "index-header__tabs__tab--active"}}"
+     {{action "onUpdateNavSelection" tab.title}}>
+      {{tab.title}}
+    </li>
+  {{/each}}
+</ul>
