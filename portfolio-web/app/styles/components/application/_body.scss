@@ -1,6 +1,5 @@
 .app-body {
   @include smooth-transitions(0.5s, width);
-  background-color: get-color(secondary, 0.3);
   position: relative;
 
   &--desktop {

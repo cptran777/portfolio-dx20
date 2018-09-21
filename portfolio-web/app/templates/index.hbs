@@ -1,1 +1,5 @@
-{{index/nav-header}}
+{{index/nav-header 
+  navSelection=navSelection 
+  onUpdateNavSelection=(action "onUpdateNavSelection")}}
+{{index/content-container
+  navSelection=navSelection}}

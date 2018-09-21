@@ -1,14 +1,14 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import ComputedProperty from '@ember/object/computed';
-import RuntimeConfigs from 'portfolio-web/services/runtime-configs';
+import RuntimeConfigs, { ScreenResolution } from 'portfolio-web/services/runtime-configs';
 import { alias } from '@ember-decorators/object/computed';
 import { IKeyMap } from 'portfolio-web/typings/global/general';
-import { computed, action } from '@ember-decorators/object';
+import { computed } from '@ember-decorators/object';
 import { INavItem } from 'portfolio-web/typings/app/navigation';
-import { get, set } from '@ember/object';
+import { get } from '@ember/object';
 
-enum IndexNavItems {
+export enum IndexNavItems {
   about = 'About Me',
   interests = 'Tech Interests',
   misc = 'Misc'
@@ -30,7 +30,9 @@ export default class IndexNavHeader extends Component.extend({
   /**
    * Class for the rendered html element for this component
    */
-  classNames: ['index-header']
+  classNames: ['index-header'],
+
+  classNameBindings: ['isDesktop:index-header--desktop']  
 }) {
   /**
    * Injected service for the runtime configs
@@ -48,7 +50,15 @@ export default class IndexNavHeader extends Component.extend({
   /**
    * The currently selected tab of the nav header
    */
-  navSelection: string = IndexNavItems.about;
+  navSelection: IndexNavItems;
+  
+  /**
+   * Updates the selected tab for the nav header, triggered by user click on one of the tabs.
+   * Passed in from the index controller
+   * @param this - Explicit this declaration for typescript
+   * @param newSelection - new selection item
+   */
+  onUpdateNavSelection: (s: IndexNavItems) => void;
 
   @computed('navSelection')
   get navOptions(): Array<INavItem> {
@@ -57,12 +67,12 @@ export default class IndexNavHeader extends Component.extend({
   }
 
   /**
-   * Updates the selected tab for the nav header, triggered by user click on one of the tabs
-   * @param this - Explicit this declaration for typescript
-   * @param newSelection - new selection item
+   * Computed alias for whether the screen size for the user is a desktop size
+   * @type {boolean}
    */
-  @action
-  onUpdateNavSelection(this: IndexNavHeader, newSelection: IndexNavItems): void {
-    set(this, 'navSelection', newSelection);
-  }
+  @computed('runtimeConfigs.screenResolution')
+  get isDesktop(): boolean {
+    const resolution = get(this, 'runtimeConfigs').screenResolution;
+    return resolution === ScreenResolution.desktop || resolution === ScreenResolution.laptop;
+  }    
 };

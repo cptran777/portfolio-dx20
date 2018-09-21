@@ -1,0 +1,35 @@
+.content-container {
+  &--desktop {
+    padding: 24px 0;
+  }
+}
+
+.content-section {
+  &--desktop {
+    width: 80%;
+    min-width: 496px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid get-color(primary, 0.5);
+    
+    .content-section {
+      &__title {
+        width: 100%;
+        border-bottom: get-color(secondary5, 0.25);
+        background-color: get-color(primary);
+        color: get-color(primary5);
+      }
+    }
+  }
+  
+  &__title {
+    padding: 8px 24px;
+    margin: 0;
+  }
+
+  &__body {
+    padding: 4px 16px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}

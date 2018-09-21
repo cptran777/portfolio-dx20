@@ -1,0 +1,14 @@
+{{#if (eq navSelection IndexNavItems.interests)}}
+  Interests
+{{else if (eq navSelection IndexNavItems.misc)}}
+  Misc
+{{else}}
+  
+  <section class={{contentSectionClass}}>
+    <h2 class="content-section__title">Summary About Me</h2>
+    <div class="content-section__body">
+      {{partial "components/index/partials/summary-content"}}
+    </div>
+  </section>
+
+{{/if}}
