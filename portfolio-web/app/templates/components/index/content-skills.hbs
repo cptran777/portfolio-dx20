@@ -1,1 +1,8 @@
-{{yield}}
+<h2 class="content-section__title">Skills</h2>
+<div class="content-section__body content-section--flex">
+  {{#each skills as |skill|}}
+    <div class="content-skill">
+      <img alt={{skill.name}} src={{skill.asset}} class="content-skill__img"/>
+    </div>
+  {{/each}}
+</div>

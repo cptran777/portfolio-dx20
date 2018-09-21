@@ -11,3 +11,6 @@ export const profileIcon = 'assets/images/Personal-Icon.png';
 
 // Image for the navbar
 export const navbarImage = 'assets/images/Navbar-Image.jpg';
+
+// Logo image root
+export const logoImageRoot = 'assets/images/logo-';

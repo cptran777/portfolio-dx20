@@ -4,6 +4,7 @@
 
   &--desktop {
     height: 100vh;
+    overflow: auto;
     
     &--nav-expanded {
       width: 60vw;

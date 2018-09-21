@@ -5,12 +5,19 @@
 }
 
 .content-section {
+  &--flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   &--desktop {
     width: 80%;
     min-width: 496px;
     height: auto;
     margin: 0 auto;
     border: 1px solid get-color(primary, 0.5);
+    margin-bottom: 24px;
     
     .content-section {
       &__title {
@@ -31,5 +38,28 @@
     padding: 4px 16px;
     font-size: 14px;
     line-height: 1.4;
+  }
+
+  .content-skill {
+    width: 21%;
+    min-width: 78px;
+    border: 1px solid get-color(primary, 0.5);
+    height: 78px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 8px;
+    
+    &:hover {
+      border: 2px solid get-color(secondary);
+      box-shadow: 5px 5px 2px get-color(primary, 0.25);
+    }
+
+    &__img {
+      height: 64px;
+      width: 64px;
+      margin: 0 auto;
+      display: block;
+    }
   }
 }
