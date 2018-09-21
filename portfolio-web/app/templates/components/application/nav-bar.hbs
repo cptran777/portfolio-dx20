@@ -1,8 +1,10 @@
 {{#if isDesktop}}
-  <i class="fa {{if isExpanded "fa-angle-double-left" "fa-angle-double-right"}} fa-2x toggle-menu" 
-   aria-hidden="true" 
-   {{action "onToggleExpanded"}}>
-  </i>
+  {{#unless isLaptop}}
+    <i class="fa {{if isExpanded "fa-angle-double-left" "fa-angle-double-right"}} fa-2x toggle-menu" 
+    aria-hidden="true" 
+    {{action "onToggleExpanded"}}>
+    </i>
+  {{/unless}}
   <section class="brand-logo">
     {{#link-to "index"}}
       <img class="brand-logo__img" src={{assets.profileIcon}} />
