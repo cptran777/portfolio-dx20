@@ -1,7 +1,4 @@
-import Component from '@ember/component';
+import BaseContentContainer from 'portfolio-web/components/base-content-container';
 
-export default class InterestsContentContainer extends Component.extend({
-  // anything which *must* be merged to prototype here
-}) {
-  // normal class body definition here
+export default class InterestsContentContainer extends BaseContentContainer {
 };
