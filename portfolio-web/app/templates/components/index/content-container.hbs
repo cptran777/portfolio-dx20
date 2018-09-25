@@ -1,7 +1,30 @@
 {{#if (eq navSelection IndexNavItems.interests)}}
-  Interests
+  
+  <section class={{contentSectionClass}}>
+    <h2 class="content-section__title">Virtual and Augmented Reality</h2>
+    <div class="content-section__body">
+      {{partial "components/index/partials/virtual-reality"}}
+    </div>
+  </section>
+
+  <section class={{contentSectionClass}}>
+    <h2 class="content-section__title">Artificial Intelligence</h2>
+    <div class="content-section__body">
+      {{partial "components/index/partials/artificial-intelligence"}}
+    </div>
+  </section>
+
+  <section class={{contentSectionClass}}>
+    <h2 class="content-section__title">Game Development</h2>
+    <div class="content-section__body">
+      {{partial "components/index/partials/game-dev"}}
+    </div>
+  </section>
+
 {{else if (eq navSelection IndexNavItems.misc)}}
-  Misc
+  <section class={{contentSectionClass}}>
+    <h2 class="content-section__title">In Progress</h2>
+  </section>
 {{else}}
   
   <section class={{contentSectionClass}}>
