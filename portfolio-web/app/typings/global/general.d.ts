@@ -12,3 +12,11 @@ declare global {
 export interface IKeyMap {
   [key: string]: string;
 }
+
+/**
+ * Basic id => name object
+ */
+export interface ILabel {
+  id: string;
+  name: string;
+}

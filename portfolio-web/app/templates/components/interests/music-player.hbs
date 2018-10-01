@@ -1,0 +1,8 @@
+<iframe src={{concat "https://www.youtube.com/embed/" videoId}} class="music-player"></iframe>
+<div class="music-list">
+  {{#each musicList as |artist|}}
+    <button class="music-list__button" {{action (mut videoId) concat artist.id}}>
+      {{artist.name}}
+    </button>
+  {{/each}}
+</div>

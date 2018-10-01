@@ -38,6 +38,10 @@
     padding: 4px 16px;
     font-size: 14px;
     line-height: 1.4;
+
+    &--light {
+      background-color: get-color(primary4, 0.5);
+    }
   }
 
   .content-skill {
