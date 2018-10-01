@@ -1,6 +1,14 @@
 .content-container {
   &--desktop {
     padding: 24px 0;
+
+    .content-container__title {
+      text-align: center;
+      margin-top: 0px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid get-color(primary, 0.75);
+      padding-bottom: 8px;
+    }
   }
 }
 
