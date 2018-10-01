@@ -1,0 +1,10 @@
+<h2 class="content-section__title">
+  {{#if useCustomTitleTemplate}}
+    {{partial customTitleTemplate}}
+  {{else}}
+    {{title}}
+  {{/if}}
+</h2>
+<div class={{concat "content-section__body" customBodyClass}}>
+  {{yield}}
+</div>

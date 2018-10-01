@@ -1,38 +1,24 @@
 {{#if (eq navSelection IndexNavItems.interests)}}
   
-  <section class={{contentSectionClass}}>
-    <h2 class="content-section__title">Virtual and Augmented Reality</h2>
-    <div class="content-section__body">
-      {{partial "components/index/partials/virtual-reality"}}
-    </div>
-  </section>
-
-  <section class={{contentSectionClass}}>
-    <h2 class="content-section__title">Artificial Intelligence</h2>
-    <div class="content-section__body">
-      {{partial "components/index/partials/artificial-intelligence"}}
-    </div>
-  </section>
-
-  <section class={{contentSectionClass}}>
-    <h2 class="content-section__title">Game Development</h2>
-    <div class="content-section__body">
-      {{partial "components/index/partials/game-dev"}}
-    </div>
-  </section>
+  {{#each interestTabContent as |section|}}
+    {{#content-section
+      class=contentSectionClass
+      title=section.title}}
+      {{partial section.partial}}
+    {{/content-section}}
+  {{/each}}
 
 {{else if (eq navSelection IndexNavItems.misc)}}
   <section class={{contentSectionClass}}>
     <h2 class="content-section__title">In Progress</h2>
   </section>
 {{else}}
-  
-  <section class={{contentSectionClass}}>
-    <h2 class="content-section__title">Summary About Me</h2>
-    <div class="content-section__body">
-      {{partial "components/index/partials/summary-content"}}
-    </div>
-  </section>
+
+  {{#content-section
+    class=contentSectionClass
+    title="Summary About Me"}}
+    {{partial "components/index/partials/summary-content"}}
+  {{/content-section}}
 
   {{index/content-skills
     class=contentSectionClass}}

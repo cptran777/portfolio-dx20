@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  // Safety measure
+  overflow: hidden;
 
   #app-container {
     width: 100vw;
