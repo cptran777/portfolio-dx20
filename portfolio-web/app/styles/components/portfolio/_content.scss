@@ -1,0 +1,48 @@
+.content-section {
+  .content-project {
+    width: 31%;
+    min-width: 108px;
+    border: 1px solid get-color(primary, 0.5);
+    height: 78px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 8px;
+    overflow: hidden;
+    position: relative;
+    
+    &:hover {
+      border: 2px solid get-color(secondary);
+      box-shadow: 5px 5px 2px get-color(primary, 0.25);
+    }
+
+    &__overlay {
+      @include smooth-transitions(0.2s, top);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: get-color(secondary4, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: white;
+
+      &--hide {
+        left: 0;
+        top: -78px;
+      }
+
+      &--show {
+        top: 0;
+      }
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}

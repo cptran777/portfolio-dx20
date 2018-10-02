@@ -1,0 +1,14 @@
+{{#if isDesktop}}
+  <h1 class="content-container__title">
+    Portfolio
+  </h1>
+{{/if}}
+
+{{#content-section
+  class=contentSectionClass
+  customBodyClass="content-section--flex"
+  title="Past Projects"}}
+  {{#each projectLinks as |project|}}
+    {{portfolio/project-thumbnail project=project}}
+  {{/each}}
+{{/content-section}}

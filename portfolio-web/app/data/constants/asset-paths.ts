@@ -14,3 +14,6 @@ export const navbarImage = 'assets/images/Navbar-Image.jpg';
 
 // Logo image root
 export const logoImageRoot = 'assets/images/logo-';
+
+// Image root
+export const imageRoot = 'assets/images/';
