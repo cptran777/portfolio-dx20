@@ -4,16 +4,16 @@
  */
 
 // Profile picture
-export const profileImage = 'assets/images/Personal-Logo.jpg';
+export const profileImage = '/assets/images/Personal-Logo.jpg';
 
 // Branding icon
-export const profileIcon = 'assets/images/Personal-Icon.png';
+export const profileIcon = '/assets/images/Personal-Icon.png';
 
 // Image for the navbar
-export const navbarImage = 'assets/images/Navbar-Image.jpg';
+export const navbarImage = '/assets/images/Navbar-Image.jpg';
 
 // Logo image root
-export const logoImageRoot = 'assets/images/logo-';
+export const logoImageRoot = '/assets/images/logo-';
 
 // Image root
-export const imageRoot = 'assets/images/';
+export const imageRoot = '/assets/images/';

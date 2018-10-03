@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('portfolio', function() {
     this.route('avalon');
     this.route('reeltime');
+    this.route('labit');
+    this.route('syrup');
   });
   this.route('interests');
 });

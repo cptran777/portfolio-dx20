@@ -13,9 +13,15 @@ interface IThumbnail extends ILabel {
  */
 const projectLinks: Array<IThumbnail> = [
   { id: 'avalon', name: 'Avalon', source: `${imageRoot}project-avalon.png`, link: 'portfolio.avalon' },
-  { id: 'reeltime', name: 'Reel Time', source: `${imageRoot}project-reeltime.png`, link: 'portfolio.reeltime' }
+  { id: 'reeltime', name: 'Reel Time', source: `${imageRoot}project-reeltime.png`, link: 'portfolio.reeltime' },
+  { id: 'labit', name: 'Laugh About It', source: `${imageRoot}project-labit.png`, link: 'portfolio.labit' },
+  { id: 'syrup', name: 'Syrup Tale', source: `${imageRoot}Syrup.png`, link: 'portfolio.syrup' }
 ];
 
 export default class PortfolioContentContainer extends BaseContentContainer {
+  /**
+   * Class property for project links in order to pass to the template to be rendered
+   * @type {Array<IThumbnail>}
+   */
   projectLinks = projectLinks;
 };
