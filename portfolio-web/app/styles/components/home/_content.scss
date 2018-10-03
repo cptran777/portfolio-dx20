@@ -11,6 +11,10 @@
       color: get-color(primary2, 0.75);
     }
   }
+
+  &--flex {
+    display: flex;
+  }
 }
 
 .content-section {
