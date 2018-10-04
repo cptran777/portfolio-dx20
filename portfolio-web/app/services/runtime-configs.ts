@@ -1,8 +1,9 @@
 import Service from '@ember/service';
 import { debounce } from '@ember/runloop';
-import { set } from '@ember/object';
+import { set, get } from '@ember/object';
 import { IKeyMap } from 'portfolio-web/typings/global/general';
 import * as assetPaths from 'portfolio-web/data/constants/asset-paths';
+import { computed } from '@ember-decorators/object';
 
 export enum ScreenResolution {
   mobile = 'mobile',
@@ -25,6 +26,12 @@ export default class RuntimeConfigs extends Service {
    * @type {ScreenResolution}
    */
   screenResolution: ScreenResolution = ScreenResolution.desktop;
+
+  @computed('screenResolution')
+  get isDesktop(): boolean {
+    const resolution = get(this, 'screenResolution');
+    return (resolution === ScreenResolution.laptop) || (resolution === ScreenResolution.desktop);
+  }
 
   determineScreenResolution(): void {
     set(this, 'screenResolution', 

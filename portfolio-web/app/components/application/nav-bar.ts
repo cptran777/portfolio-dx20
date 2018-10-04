@@ -63,17 +63,16 @@ export default class ApplicationNavBar extends Component.extend({
    * Computed alias for whether the screen size for the user is a desktop size
    * @type {ComputedProperty<boolean>}
    */
-  @computed('runtimeConfigs.screenResolution')
+  @computed('runtimeConfigs.isDesktop')
   get isDesktop(): boolean {
     const resolution = get(this, 'runtimeConfigs').screenResolution;
     const isLaptop = resolution === ScreenResolution.laptop;
-    const isComputer = resolution === ScreenResolution.desktop || isLaptop;
 
     if (isLaptop) {
       get(this, 'navbarState').set('isExpanded', false);
     }
     
-    return isComputer;
+    return get(this, 'runtimeConfigs').isDesktop;
   }
 
   @equal('runtimeConfigs.screenResolution', ScreenResolution.laptop)
