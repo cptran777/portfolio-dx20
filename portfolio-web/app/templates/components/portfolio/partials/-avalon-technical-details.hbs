@@ -1,0 +1,52 @@
+<h4>
+  Front End
+</h4>
+<p>
+  The front end of Avalon was built in React with Redux. React is a lightweight framework that
+  focuses only on view rendering. Because of this, it often allows for faster load times on mobile
+  web development as well, which becomes important in a web VR application. Redux was implemented
+  to centralize and handle state changes that occur when people become connected at different levels
+  of the application. Styling on the webpage portal was designed with Bootstrap. Players can join
+  one of the lobbies on the web portal in order to connect to each other for a game. The lobbies are
+  connected through websockets, which connect to the backend. The connections are grouped and
+  partitioned into individual "rooms" for each lobby, meaning each client in the same room is
+  subscribed to signals only within the "room" that represents the lobby.
+</p>
+<p>
+  The meat of the front end of the project is the game itself, which was coded in three.js, an
+  abstraction over WebGL. Three.js/WebGL are used to render and animate 3D objects in a web browser.
+  The actual virtual reality experience is achieved using the ideas presented by the Google Cardboard
+  VR experiments that also used Three.js to render a 3D environment. VR view is accomplished by
+  calculating two view points from the origin (which would be the player) and placing these two views
+  side by side to create a stereoscopic effect. Movement and gaze direction within the 3D environment
+  is enabled by translating mobile device orientation and movement into movement of the 3D camera. As
+  a fallback, mouse movement or mobile device press and drag can be used if orientation is not detected.
+</p>
+<p>
+  Because of the limitations of mobile device web VR without additional input devices such as a wand,
+  a new eventing system had to be created to detect user's gaze direction as input. Gaze direction
+  selects an object through
+  <a href="https://lodev.org/cgtutor/raycasting.html">raycasting</a>
+  and using those intersections to detect gazes in 3D space. The
+  eventing system itself is similar to typical event listeners in JavaScript, and was coded in vanilla
+  JavaScript.
+</p>
+<h4>
+  Back End
+</h4>
+<p>
+  For integrity reasons as well as performance reasons, most game logic takes place on the back end. The
+  server cannot be as easily manipulated as the front end, and putting more calculations on the back end
+  frees up resources on the client for the GPU rendering required. Node and Express are used in the back
+  end with game logic files in their own module. A Redis database interacts frequently with the game
+  logic in order to store details about the game state. The game state is checked and updated constantly
+  in a cycle that starts with the server sending the state to the client, the client sends a response to
+  the server based on user input, the server checks the state sent back from the client with an expected
+  state shared between all clients, and then sends a new state to the client.
+</p>
+<p>
+  User information is stored on a Postgres database. When a user signs up, the username is stored in
+  plain text while the password is hashed using BCrypt, an npm module, and salted before being stored
+  for authentication on the database. At the end of a game, the results are also stored on the user's
+  personal profile as part of total statistics.
+</p>

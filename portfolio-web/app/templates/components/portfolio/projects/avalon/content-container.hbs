@@ -16,18 +16,27 @@
 
 {{#content-section
   class=contentSectionClass
+  customBodyClass="content-section--flex"
   title="Tech Stack"}}
-
+  {{#each techStack as |stack|}}
+    <div class="content-skill">
+      <img alt={{stack.name}} src={{stack.asset}} class="content-skill__img"/>
+    </div>
+  {{/each}}
 {{/content-section}}
 
 {{#content-section
   class=contentSectionClass
   title="Technical Details"}}
+  {{partial "components/portfolio/partials/avalon-technical-details"}}
 {{/content-section}}
 
 {{#content-section
   class=contentSectionClass
+  customBodyClass="content-section--flex"
   title="Gallery"}}
+  <img alt="avalon-gallery-1" src="/assets/images/project-avalon-gal-1.png" class="content-gallery__img" />
+  <img alt="avalon-gallery-2" src="/assets/images/project-avalon-gal-2.png" class="content-gallery__img" />
 {{/content-section}}
 
 {{#content-section

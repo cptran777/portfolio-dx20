@@ -19,7 +19,7 @@
     margin-bottom: 8px;
     overflow: hidden;
     position: relative;
-    
+
     &:hover {
       border: 2px solid get-color(secondary);
       box-shadow: 5px 5px 2px get-color(primary, 0.25);
@@ -52,6 +52,15 @@
       width: 100%;
       margin: 0 auto;
       display: block;
+    }
+  }
+
+  .content-gallery {
+    &__img {
+      width: 256px;
+      height: 196px;
+      margin: 16px 24px;
+      border-radius: 15px;
     }
   }
 }
